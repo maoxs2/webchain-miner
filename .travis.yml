@@ -20,7 +20,7 @@ install:
 script:
   - mkdir build 
   - cd build
-  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a
+  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.so -DMHD_LIBRARY= /usr/lib/x86_64-linux-gnu/libmicrohttpd.so
   - cd ..
 
 after_script:
