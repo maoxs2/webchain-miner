@@ -25,12 +25,12 @@ build_script:
   - mkdir build
   - cd build
   - cmake .. -G "Visual Studio 15 2017 Win64" -DXMRIG_DEPS=c:\xmrig-deps-3.1\msvc2017\x64
-  - msbuild xmrig.sln /p:Configuration=Release
+  - msbuild webchain-miner.sln /p:Configuration=Release
 
 after_build:
 - cd c:\xmrig
-- cmd: 7z a xmrig-mvc-win64.zip "c:\xmrig\build\Release\*.exe" "c:\xmrig\src\*config*"
+- cmd: 7z a webchain-miner-win64.zip "c:\xmrig\build\Release\*.exe" "c:\xmrig\src\*config*"
 - cmd: dir
 
 artifacts:
-- path: xmrig-mvc-win64.zip
+- path: webchain-miner-win64.zip
