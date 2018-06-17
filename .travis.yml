@@ -13,7 +13,7 @@ before_install:
   - sudo apt-get update -q
 
 install:
-  - sudo apt-get libmicrohttpd10 libuv1 install build-essential gcc-8 g++-8 cmake -y
+  - sudo apt-get install libmicrohttpd10 libuv1 install build-essential gcc-8 g++-8 cmake -y
 
 
 script:
