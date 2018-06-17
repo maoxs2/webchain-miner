@@ -1,0 +1,38 @@
+
+language: cpp
+
+dist: trusty
+
+sudo: false
+
+cache:
+  apt: true
+
+before_install:
+  - sudo add-apt-repository ppa:jonathonf/gcc-8.1 -y
+  - sudo apt-get update -q
+
+install:
+  - sudo apt-get libmicrohttpd10 libuv1 install build-essential gcc-8 g++-8 cmake -y
+
+
+script:
+  - mkdir build 
+  - cd build
+  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a
+  - cd ..
+
+after_script:
+  - tar czvf webchain-miner-ubuntu14_04.tar.gz "build/webchain-miner" "src/*config*"
+
+# before_deploy:
+#   # Set up git user name and tag this commit
+#   - git config --local user.name "YOUR GIT USER NAME"
+#   - git config --local user.email "YOUR GIT USER EMAIL"
+#   - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
+# deploy:
+#   provider: releases
+#   api_key: "GITHUB OAUTH TOKEN"
+#   file: "FILE TO UPLOAD"
+#   skip_cleanup: true
