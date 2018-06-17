@@ -14,7 +14,7 @@ before_install:
   - sudo apt-get update -q
 
 install:
-  - sudo apt-get install -f libmicrohttpd10 libuv1 build-essential gcc-8 g++-8 cmake -y
+  - sudo apt-get install -f libmicrohttpd10 libuv1 build-essential gcc-8 g++-8 cmake -y  --allow-unauthenticated
 
 
 script:
