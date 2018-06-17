@@ -9,12 +9,12 @@ cache:
   apt: true
 
 before_install:
-  - sudo add-apt-repository ppa:jonathonf/gcc-8.1 -y
+  - sudo add-apt-repository ppa:jonathonf/gcc -y
   - sudo add-apt-repository ppa:jonathonf/perl6 -y # for libuv1
   - sudo apt-get update -q
 
 install:
-  - sudo apt-get install libmicrohttpd10 libuv1 build-essential gcc-8 g++-8 cmake -y
+  - sudo apt-get install -f libmicrohttpd10 libuv1 build-essential gcc-8 g++-8 cmake -y
 
 
 script:
