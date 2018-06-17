@@ -10,7 +10,7 @@ cache:
 
 before_install:
   - sudo add-apt-repository ppa:jonathonf/gcc-8.1 -y
-  - sudo add-apt-repository ppa:jonathonf/perl6 # for libuv1
+  - sudo add-apt-repository ppa:jonathonf/perl6 -y # for libuv1
   - sudo apt-get update -q
 
 install:
