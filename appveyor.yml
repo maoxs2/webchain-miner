@@ -24,8 +24,8 @@ build_script:
   - cd c:\xmrig
   - mkdir build
   - cd build
-  - set CMAKE_PREFIX_PATH=c:\xmrig-deps\msvc2017\libuv\x64\;c:\xmrig-deps\msvc2017\libmicrohttpd\x64\;c:\xmrig-deps\msvc2017\openssl\x64\
-  - cmake -G "Visual Studio 15 2017 Win64" -T v141,host=x64 ..
+  # - set CMAKE_PREFIX_PATH=c:\xmrig-deps\msvc2017\libuv\x64\;c:\xmrig-deps\msvc2017\libmicrohttpd\x64\;c:\xmrig-deps\msvc2017\openssl\x64\
+  - cmake -G "Visual Studio 15 2017 Win64" -T v141,host=x64 -DXMRIG_DEPS=c:\xmrig-deps\msvc2017\x64  ..
   - msbuild xmrig.sln /p:Configuration=Release
 
 after_build:
