@@ -112,8 +112,7 @@ static void print_threads(xmrig::Config *config)
     else {
         Log::i()->text(config->isColors() ? "\x1B[01;32m * \x1B[01;37mTHREADS:      \x1B[01;36m%d\x1B[01;37m, %s " : " * THREADS:      %d, %s ",
                        config->threadsCount(),
-                       config->algorithm().name(),
-                       );
+                       config->algorithm().name());
     }
 }
 
