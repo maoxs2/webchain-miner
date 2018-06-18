@@ -38,13 +38,7 @@ script:
   - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DMHD_LIBRARY=/usr/local/lib/libmicrohttpd.a 
   - make
   - cd ..
-  - tar czvf webchain-miner-ubuntu14_04.tar.gz "build/webchain-miner" "src/*config*"
-
-before_deploy:
-  # Set up git user name and tag this commit
-  - git config --local user.name "Command"
-  - git config --local user.email "maoxs2@163.com"
-  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+  - tar czvf webchain-miner-ubuntu14_04.tar.gz "build/webchain-miner" "src/config.json"
 
 deploy:
   provider: releases
