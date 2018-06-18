@@ -38,8 +38,6 @@ script:
   - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DMHD_LIBRARY=/usr/local/lib/libmicrohttpd.a 
   - make
   - cd ..
-
-after_script:
   - tar czvf webchain-miner-ubuntu14_04.tar.gz "build/webchain-miner" "src/*config*"
 
 before_deploy:
