@@ -19,15 +19,23 @@ addons:
     packages: &default_packages
       - cmake
       - build-essential
-
+      - wget
+      
 install:
   - sudo apt-get install -f libuv1-dev gcc-8 g++-8 cmake3 -y --allow-unauthenticated
-
-
-script:
   - mkdir build 
   - cd build
-  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DWITH_HTTPD=OFF # -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a # failed to make MHD static 
+  - wget https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-latest.tar.gz
+  - tar -xf libmicrohttpd-latest.tar.gz
+  - cd libmicrohttpd*
+  - ./configure --disable-shared --disable-doc --disable-examples --disable-curl --enable-https=no --disable-bauth --disable-dauth --disable-httpupgrade
+  - make
+  - sudo make install
+  - cd ..
+
+script:
+
+  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DMHD_LIBRARY=/usr/local/lib/libmicrohttpd.la 
   - make
   - cd ..
 
