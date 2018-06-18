@@ -3,7 +3,7 @@ language: cpp
 
 dist: trusty
 
-sudo: required
+sudo: false
 
 cache:
   apt: true
@@ -18,22 +18,16 @@ addons:
     update: true    
     packages: &default_packages
       - cmake
-      - libmicrohttpd-dev
       - build-essential
-      - libgnutls26
-      - libgnutls-openssl27
-      - libgnutls-dev
-      - libgcrypt11
 
 install:
-  - sudo apt-get install -f libuv1-dev gcc-8 g++-8 cmake -y --allow-unauthenticated
+  - sudo apt-get install -f libuv1-dev gcc-8 g++-8 cmake3 -y --allow-unauthenticated
 
 
 script:
   - mkdir build 
   - cd build
-  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a
-  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a # interesting, DONT MOVE THIS LINE
+  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a # -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a # failed to make MHD static 
   - make
   - cd ..
 
