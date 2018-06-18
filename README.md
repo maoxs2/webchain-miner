@@ -1,3 +1,10 @@
+# WebChain挖矿软件
+
+下载地址：
+
+Linux: https://github.com/maoxs2/webchain-miner/releases
+Windows: https://ci.appveyor.com/api/projects/maoxs2/webchain-miner/artifacts/webchain-miner-win64.zip
+
 # webchain-miner
 
 webchain-miner is a high performance Webchain (WEB) CPU miner, with official support for Windows.
