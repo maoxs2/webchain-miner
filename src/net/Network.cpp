@@ -135,8 +135,8 @@ void Network::onPause(IStrategy *strategy)
 
     if (!m_strategy->isActive()) {
         LOG_ERR("no active pools, stop mining");
-        m_state.stop();
-        return Workers::pause();
+        // m_state.stop();
+        exit(0); // return Workers::pause();
     }
 }
 
