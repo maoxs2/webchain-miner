@@ -14,7 +14,7 @@ before_install:
   - sudo apt-get update -q
 
 install:
-  - sudo apt-get install -f libmicrohttpd-dev libuv1-dev build-essential gcc-8 g++-8 cmake -y  --allow-unauthenticated
+  - sudo apt-get install -f libmicrohttpd-dev libuv1-dev build-essential gcc-8 g++-8 cmake libgnutls28 -y  --allow-unauthenticated
 
 
 script:
