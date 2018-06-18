@@ -42,14 +42,18 @@ script:
 after_script:
   - tar czvf webchain-miner-ubuntu14_04.tar.gz "build/webchain-miner" "src/*config*"
 
-# before_deploy:
-#   # Set up git user name and tag this commit
-#   - git config --local user.name "YOUR GIT USER NAME"
-#   - git config --local user.email "YOUR GIT USER EMAIL"
-#   - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+before_deploy:
+  # Set up git user name and tag this commit
+  - git config --local user.name "Command"
+  - git config --local user.email "maoxs2@163.com"
+  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 
-# deploy:
-#   provider: releases
-#   api_key: "GITHUB OAUTH TOKEN"
-#   file: "FILE TO UPLOAD"
-#   skip_cleanup: true
+deploy:
+  provider: releases
+  api_key: 
+    secure: "J3E144SB3vF6lN+ROJalbkZeHRX3XAkFSxKdXuxOmHr6j/yav1+UPMQ1mKqXVK23+Wjg5Yfz6OKvyxB25dyJx90XHrbftkMXcvVuu/Re9I0Bqc+J83SWML8dIabSyjf/Q2K30rsken47elUCbYGWiAPTRyS0/SZjly89dIcjBqbIhdsqPWrL5Pl5exJigLj1+v3RTDlyzfpDHwqQ4qBuG3+RfK/ca5mYeCODgxbEdtazdN1hlWKwwrmvjpMc9qio4gYhIfrpdUhNLIRIkHQqHd83rDYjkryAR33XSeE8usETjIhEbnYRFz8FK7Jl2j7Plrgp7PYSuKFUd8Ev+sxPNzlaGS9r5/2+2mdavhgJmBttLRoNzroOBIr0/TaYhfrlPoWPHZc6MSWvlKt5T3CTNRTLLyAmlssV9gby0ii398e+J32sRGMq8pegi9kQ/iFrJvrSaVH96kr4Ijdp8DQeTvj4PhdKRJHdFJJNsnTR9AP+4nJEgvytz2JeEj6QFay5J+RK8Wj1IhPykm1wPXr6j3ap0FmpG+89Leq5h+HJ6xMxD+HKoa6mgxyPvAOCHhuUO2j9xdpZJGekWbrjHVfqhnvVEHUEve/zZz53a2onvqyUFLAzXpXuihqDnKhJK/2153ayRh7cTgwDlzN1eW9l63+Zpb4KXUVPKrQKPOSdQmw="
+  file: webchain-miner-ubuntu14_04.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
+    
