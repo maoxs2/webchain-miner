@@ -14,13 +14,14 @@ before_install:
   - sudo apt-get update -q
 
 install:
-  - sudo apt-get install -f libmicrohttpd10 libuv1 build-essential gcc-8 g++-8 cmake -y  --allow-unauthenticated
+  - sudo apt-get install -f libmicrohttpd-dev libuv1-dev build-essential gcc-8 g++-8 cmake -y  --allow-unauthenticated
 
 
 script:
   - mkdir build 
   - cd build
-  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.so.1 -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.so.10
+  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DUV_INCLUDE_DIR= -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a
+  - make
   - cd ..
 
 after_script:
