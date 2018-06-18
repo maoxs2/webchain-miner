@@ -20,6 +20,9 @@ addons:
       - cmake
       - libmicrohttpd-dev
       - build-essential
+      - libgnutls26
+      - libgnutls-openssl27
+      - libgnutls-dev
 
 install:
   - sudo apt-get install -f libuv1-dev gcc-8 g++-8 cmake -y --allow-unauthenticated
