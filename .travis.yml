@@ -27,7 +27,7 @@ install:
 script:
   - mkdir build 
   - cd build
-  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a # -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a # failed to make MHD static 
+  - cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DUV_LIBRARY=/usr/lib/x86_64-linux-gnu/libuv.a -DWITH_HTTPD=OFF # -DMHD_LIBRARY=/usr/lib/x86_64-linux-gnu/libmicrohttpd.a # failed to make MHD static 
   - make
   - cd ..
 
