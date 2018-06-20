@@ -55,6 +55,7 @@ uv_async_t Workers::m_async;
 uv_mutex_t Workers::m_mutex;
 uv_rwlock_t Workers::m_rwlock;
 uv_timer_t Workers::m_timer;
+xmrig::Controller *Workers::m_controller = nullptr;
 
 
 Job Workers::job()
@@ -160,7 +161,7 @@ void Workers::setJob(const Job &job, bool donate)
 void Workers::start(xmrig::Controller *controller)
 {
     m_controller = controller;
-    
+
     const std::vector<xmrig::IThread *> &threads = controller->config()->threads();
     m_status.algo    = controller->config()->algorithm().algo();
     m_status.colors  = controller->config()->isColors();
