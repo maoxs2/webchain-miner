@@ -28,7 +28,7 @@
 #include <uv.h>
 
 
-#include "common/interfaces/ILogBackend.h"
+#include "interfaces/ILogBackend.h"
 
 
 namespace xmrig {
