@@ -22,6 +22,7 @@
  */
 
 #include <cmath>
+#include <inttypes.h>
 #include <thread>
 
 
@@ -116,7 +117,6 @@ void Workers::printHashrate(bool detail)
              i++;
         }
     }
-
 
     m_hashrate->print();
 }
@@ -338,7 +338,7 @@ void Workers::start(IWorker *worker)
                      m_status.hugePages, m_status.pages, percent, memory);
         }
         else {
-            LOG_INFO("READY (CPU) threads %zu(%zu) huge pages %zu/%zu %f%% memory %zu.0 MB",
+            LOG_INFO("READY (CPU) threads %zu(%zu) huge pages %zu/%zu %1.0f%% memory %zu.0 MB",
                      m_status.threads, m_status.ways, m_status.hugePages, m_status.pages, percent, memory);
         }
     }
