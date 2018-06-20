@@ -30,7 +30,7 @@
 #include <vector>
 
 
-#include "common/interfaces/ILogBackend.h"
+#include "interfaces/ILogBackend.h"
 
 
 class Log
