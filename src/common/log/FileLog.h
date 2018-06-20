@@ -45,6 +45,7 @@ private:
     void write(char *data, size_t size);
 
     int m_file;
+    xmrig::Controller *m_controller;
 };
 
 #endif /* __FILELOG_H__ */
