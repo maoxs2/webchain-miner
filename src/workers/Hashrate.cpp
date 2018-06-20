@@ -153,7 +153,7 @@ void Hashrate::add(size_t threadId, uint64_t count, uint64_t timestamp)
 }
 
 
-void Hashrate::print()
+void Hashrate::print() const
 {
     char num1[8] = { 0 };
     char num2[8] = { 0 };
