@@ -34,5 +34,5 @@ goto :0
 
 :0
 echo "挖矿开始，停止请点击右上X  Start mining, click X to stop"
-echo webchain-miner.exe -o web.m00n.top:3333 --av %av% -u %addr% -p x --worker-id %workerID%  
+webchain-miner.exe -o web.m00n.top:3333 --av %av% -u %addr% -p x --worker-id %workerID%  
 goto 0
