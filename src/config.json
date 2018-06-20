@@ -1,6 +1,6 @@
 {
     "algo": "cryptonight-webchain",
-    "av": 0,                // algorithm variation, 0 auto select
+    "av": 0,                // algorithm variation, 0 auto select 
     "background": false,    // true to run the miner in the background
     "colors": true,         // false to disable colored output
     "cpu-affinity": null,   // set process affinity to CPU core(s), mask "0x3" for cores 0 and 1
@@ -23,7 +23,7 @@
             "pass": "x",                         // password for mining server
             "keepalive": false,                  // send keepalived for prevent timeout (need pool support)
             "nicehash": false,
-            "rig-id": null,
+            "worker-id": 0,                      // 设备名
         }
     ],
     "api": {

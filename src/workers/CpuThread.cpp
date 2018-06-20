@@ -62,7 +62,12 @@ bool xmrig::CpuThread::isSoftAES(AlgoVariant av)
 
 xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant av, Variant variant)
 {
-    assert(variant == VARIANT_0 || variant == VARIANT_1 || variant == VARIANT_IPBC || variant == VARIANT_XTL);
+    assert(
+        variant == VARIANT_0 || 
+        variant == VARIANT_1 || 
+        variant == VARIANT_IPBC || 
+        variant == VARIANT_XTL
+        );
 
     static const cn_hash_fun func_table[90] = {
         cryptonight_single_hash<CRYPTONIGHT, false, VARIANT_0>,
