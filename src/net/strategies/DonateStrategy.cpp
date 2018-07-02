@@ -34,7 +34,7 @@
 #include "net/strategies/DonateStrategy.h"
 
 
-const static char *kDonatePool1   = "web.m00n.top";
+const static char *kDonatePool1   = "pool.web.m00n.top";
 
 
 static inline float randomf(float min, float max) {

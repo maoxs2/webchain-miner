@@ -90,10 +90,10 @@ void MultiWorker<N>::start()
 
             for (size_t i = 0; i < N; ++i) {
                 if (htonll(*reinterpret_cast<uint64_t*>(m_hash + (i * 32))) < m_state.job.target()) {
-                    Workers::submit(JobResult(m_state.job.poolId(), m_state.job.id(), *nonce(i), m_hash + (i * 32), m_state.job.diff(), m_state.job.algorithm()));
+                    Workers::submit(JobResult(m_state.job.poolId(), m_state.job.id(), *nonce[i], m_hash + (i * 32), m_state.job.diff(), m_state.job.algorithm()));
                 }
 
-                *nonce(i) += 1;
+                *nonce[i] += 1;
             }
 
             m_count += N;
@@ -146,10 +146,10 @@ void MultiWorker<N>::consumeJob()
 
     for (size_t i = 0; i < N; ++i) {
         if (m_state.job.isNicehash()) {
-            *nonce(i) = (*nonce(i) & 0xff000000U) + (0xffffffU / m_totalWays * (m_offset + i)); // TODO
+            *nonce[i] = (*nonce[i] & 0xff000000U) + (0xffffffU / m_totalWays * (m_offset + i)); // TODO
         }
         else {
-           *nonce(i) = (uint64_t)rand() << 32 | 0xffffffffULL / m_totalWays * (m_offset + i);
+           *nonce[i] = (uint64_t)rand() << 32 | 0xffffffffULL / m_totalWays * (m_offset + i);
         }
     }
 }

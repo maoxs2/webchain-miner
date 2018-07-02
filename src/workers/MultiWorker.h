@@ -25,6 +25,7 @@
 #ifndef __MULTIWORKER_H__
 #define __MULTIWORKER_H__
 
+#define BLOB_SIZE 0x10000
 
 #include "crypto/CryptoNight.h"
 #include "common/net/Job.h"
