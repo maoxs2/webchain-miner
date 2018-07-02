@@ -17,19 +17,20 @@ if not defined workerID (
 )
 
 if not defined av ( 
-	echo "未输入加速！默认为自适配（可能不加速）"  
-	set /a av=0
-)else(
-    if av equ 0 (
-        av=1
-    ) else (
-        if av equ 1 (
-            av=2
-        ) else (
-            set /a av=%av%+2
-        )
-    )
+    echo "未输入加速！默认为自适配（可能不加速）"  
+    set /a av=0
+    goto :0      
 )
+if av equ 0 (
+    av=1
+    goto :0
+)
+if av equ 1 (
+    av=2
+    goto :0
+)
+set /a av=%av%+2
+goto :0
 
 :0
 echo "挖矿开始，停止请点击右上X  Start mining, click X to stop"
